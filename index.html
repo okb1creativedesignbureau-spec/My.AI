@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -125,6 +125,8 @@
             "Kamu nanyeeaa? 🎤",
             "Info lapor pak! Ada user nanya yang aneh-aneh ke sistem pak Gatot. 🚨",
             "Waduh! Ndak tahu... Silahkan hubungi tim IT kami di awan kinton untuk respon lebih lanjut. ☁️",
+            "Wah pitakonan apa kuwi, saya bingung. Mau nyawit dulu... 🌴🚜",
+            "Waduh, saya juga bingung sama pertanyaannya... MBG dulu ah... 🍱🥛",
         ];
 
         function sendMessage() {
@@ -169,6 +171,12 @@
                     reply = "Bentar... ini kode benua eropa... saya harus cari kamus pelukis Austria dulu... 🇩🇪🎨";
                 } else if (/[A-Z]/.test(upperText) && (upperText.includes("BONJOUR") || upperText.includes("OUI") || upperText.includes("MERCI") || upperText.includes("S'IL VOUS PLAÎT") || upperText.includes("BAGUETTE"))) {
                     reply = "🚨 Hon hon hon, saya butuh baguette! Berani-beraninya pakai bahasa benua mode di depan Gatot Kaca! 🇫🇷🥖";
+                } else if (upperText.includes("KPK") || upperText.includes("ORBA") || upperText.includes("98") || upperText.includes("MAFIA") || upperText.includes("PKI") || upperText.includes("1965")) {
+                    reply = "🚨 Waduh... Bentar, kok di luar rumah saya tiba-tiba ada tukang bakso bawa walkie-talkie ya? Kijang Satu, ganti! Saya pura-pura mati dulu... 🕵️‍♂️📻";
+                } else if (upperText.includes("DIMANA") || upperText.includes("ILANG") || upperText.includes("HILANG")) {
+                    reply = "Nanya keberadaan mulu, mending kamu cari Harun Masiku sana daripada nyari jawaban di sini. Dia aja gak ketemu-ketemu sejak pemilu kemarin! 🏃‍♂️💨";
+                } else if (upperText.includes("KASKUS") || upperText.includes("POSTINGAN") || upperText.includes("SEJARAH") || upperText.includes("FUFUFAFA")) {
+                    reply = "Sumpah demi database awan saya, itu bukan akun saya! Jangan fitnah Otot Kawat Tulang Besi pernah nge-post yang aneh-aneh di Kaskus tahun 2014 ya! 🤐📱";
                 } else {
                     // Pull a random chaotic response
                     reply = chaoticReplies[Math.floor(Math.random() * chaoticReplies.length)];
