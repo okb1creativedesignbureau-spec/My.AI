@@ -15,8 +15,9 @@
     <meta property="og:description" content="Entitas kecerdasan buatan asli Indonesia dengan Otot Kawat Tulang Besi.">
     <meta property="og:image" content="https://github.com/fluidicon.png">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
             background: #0d1117;
             color: #c9d1d9;
             margin: 0;
@@ -163,9 +164,9 @@
                     {reply = "Halo juga! Ada yang bisa saya buat bingung hari ini?";}
                 else if (upperText.includes("?") || upperText.includes("TOLONG")) 
                     {reply = "YOK NDAK TAHU... KOK TANYA SAYA... KAGET... KAGET...";}
-                else if (upperText.includes("JELEK") || upperText.includes("CURHAT")) 
+                else if (upperText.includes("JELEK") || upperText.includes("CURHAT") || upperText.includes("PACAR") || upperText.includes("CINTA")) 
                     {reply = "NDAS MU! Kok Curhat ke saya??";}
-                else if (upperText.includes("POLITIK") || upperText.includes("PEMERINTAH")) 
+                else if (upperText.includes("POLITIK") || upperText.includes("PEMERINTAH") || upperText.includes("DPR") || upperText.includes("MPR") || upperText.includes("PRESIDEN")) 
                     {reply = "DEMI PALE BAPAK KAU! IKI JUGA GAK TAHU... MAU BELI TRUK DULU...";}
                     
                 else if (/[A-Z]/.test(upperText) && (upperText.includes("JE ") || upperText.includes("VAN ") || upperText.includes(" DE ") || upperText.includes("EEN ") || upperText.includes(" IK "))) 
