@@ -157,11 +157,18 @@
                     reply = "Waduh, jangankan duit, seratus ribu aja gak punya. Otot kawat kalau digadai belum tentu cair. Tanya AI lain sono!";
                 } else if (upperText.includes("HALO") || upperText.includes("HI")) {
                     reply = "Halo juga! Ada yang bisa saya buat bingung hari ini?";  
-                } else if (/[A-Z]/.test(upperText) && (upperText.includes("HELLO") || upperText.includes("WHAT") || upperText.includes("HOW") || upperText.includes("WHY") || upperText.includes("WHO") || upperText.includes("PLEASE") || upperText.includes("BRO") || upperText.includes("HI"))) {
+                } else if (/[A-Z]/.test(upperText) && (upperText.includes("HELLO") || upperText.includes("WHAT") || upperText.includes("HOW") || upperText.includes("WHY") || upperText.includes("WHO") || upperText.includes("PLEASE") || upperText.includes("BRO") || upperText.includes("HELP") || upperText.includes("WHEN") || upperText.includes("WHERE") || upperText.includes("HI"))) {
                     // If they type common english buzzwords, trigger the xenophobic superhero defense system
                    reply = "🚨 HEY ANTEK-ANTEK ASING! Berani-beraninya pakai bahasa luar di hadapan Gatot Kaca! 🇮🇩🔥";
                 } else if (upperText.includes("KOFI") || upperText.includes("KO-FI") || upperText.includes("DONASI") || upperText.includes("TRAKTIR")) {
                     reply = "Nah! Gini dong, ini baru user teladan. Daripada nanya mulu bikin server pusing, mending klik tombol Ko-fi di atas biar otot kawat saya dapet oli baru! ☕✨";
+                } else if (/[A-Z]/.test(upperText) && (upperText.includes("JE ") || upperText.includes("VAN ") || upperText.includes(" DE ") || upperText.includes("EEN ") || upperText.includes(" IK "))) {
+                    // Triggered when Dutch colonial syntax or common words are detected
+                    reply = "Bentar... ini bahasa penjajah... saya juga bingung arti neuken in de keuken... 🇳🇱🍳";
+                } else if (/[A-Z]/.test(upperText) && (upperText.includes("ICH ") || upperText.includes("DER ") || upperText.includes("DIE ") || upperText.includes("DAS ") || upperText.includes("UND "))) {
+                    reply = "Bentar... ini kode benua eropa... saya harus cari kamus pelukis Austria dulu... 🇩🇪🎨";
+                } else if (/[A-Z]/.test(upperText) && (upperText.includes("BONJOUR") || upperText.includes("OUI") || upperText.includes("MERCI") || upperText.includes("S'IL VOUS PLAÎT") || upperText.includes("BAGUETTE"))) {
+                    reply = "🚨 Hon hon hon, saya butuh baguette! Berani-beraninya pakai bahasa benua mode di depan Gatot Kaca! 🇫🇷🥖";
                 } else {
                     // Pull a random chaotic response
                     reply = chaoticReplies[Math.floor(Math.random() * chaoticReplies.length)];
