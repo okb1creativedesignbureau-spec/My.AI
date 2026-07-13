@@ -153,31 +153,82 @@
                 const upperText = text.toUpperCase();
                 
                 // Smart Easter Egg Triggers
-                if (upperText.includes("JSON")) {
-                    reply = "Gagal memuat Querry. Membuka JSON. JSON? Siapa itu Jason? Jangan tanya saya soal parsing strings, pusing kepala besi saya!";
-                } else if (upperText.includes("PINJEM") || upperText.includes("DUIT") || upperText.includes("100")) {
-                    reply = "Waduh, jangankan duit, seratus ribu aja gak punya. Otot kawat kalau digadai belum tentu cair. Tanya AI lain sono!";
-                } else if (upperText.includes("HALO") || upperText.includes("HI")) {
-                    reply = "Halo juga! Ada yang bisa saya buat bingung hari ini?";  
-                } else if (/[A-Z]/.test(upperText) && (upperText.includes("JE ") || upperText.includes("VAN ") || upperText.includes(" DE ") || upperText.includes("EEN ") || upperText.includes(" IK "))) {
+                if (upperText.includes("JSON")) 
+                    {reply = "Gagal memuat Querry. Membuka JSON. JSON? Siapa itu Jason? Jangan tanya saya soal parsing strings, pusing kepala besi saya!";} 
+                else if (upperText.includes("KODE") || upperText.includes("PROGRAM") || upperText.includes("SCRIPT"))
+                    {reply = "PUYER PALE KU! Tanya AI lain sono!";}
+                else if (upperText.includes("PINJEM") || upperText.includes("DUIT") || upperText.includes("100")) 
+                    {reply = "Waduh, jangankan duit, seratus ribu aja gak punya. Otot kawat kalau digadai belum tentu cair. Tanya AI lain sono!";} 
+                else if (upperText.includes("HALO") || upperText.includes("HI")) 
+                    {reply = "Halo juga! Ada yang bisa saya buat bingung hari ini?";}
+                else if (upperText.includes("?") || upperText.includes("TOLONG")) 
+                    {reply = "YOK NDAK TAHU... KOK TANYA SAYA... KAGET... KAGET...";}
+                else if (upperText.includes("JELEK") || upperText.includes("CURHAT")) 
+                    {reply = "NDAS MU! Kok Curhat ke saya??";}
+                else if (upperText.includes("POLITIK") || upperText.includes("PEMERINTAH")) 
+                    {reply = "DEMI PALE BAPAK KAU! IKI JUGA GAK TAHU... MAU BELI TRUK DULU...";}
+                    
+                else if (/[A-Z]/.test(upperText) && (upperText.includes("JE ") || upperText.includes("VAN ") || upperText.includes(" DE ") || upperText.includes("EEN ") || upperText.includes(" IK "))) 
+                {
                     // Triggered when Dutch colonial syntax or common words are detected
-                    reply = "Bentar... ini bahasa penjajah... saya juga bingung arti neuken in de keuken... 🇳🇱";
-                } else if (/[A-Z]/.test(upperText) && (upperText.includes("ICH ") || upperText.includes("DER ") || upperText.includes("DIE ") || upperText.includes("DAS ") || upperText.includes("UND "))) {
-                    reply = "Bentar... ini kode benua eropa... saya harus cari kamus pelukis Austria dulu... 🇩🇪";
-                } else if (/[A-Z]/.test(upperText) && (upperText.includes("BONJOUR") || upperText.includes("OUI") || upperText.includes("MERCI") || upperText.includes("S'IL VOUS PLAÎT") || upperText.includes("BAGUETTE"))) {
-                    reply = "🚨 Hon hon hon, saya butuh baguette! Berani-beraninya pakai bahasa benua mode di depan Gatot Kaca! 🇫🇷";
-                } else if (/[A-Z]/.test(upperText) && (upperText.includes("HELLO") || upperText.includes("WHAT") || upperText.includes("HOW") || upperText.includes("WHY") || upperText.includes("WHO") || upperText.includes("PLEASE") || upperText.includes("BRO") || upperText.includes("HELP") || upperText.includes("WHEN") || upperText.includes("WHERE") || upperText.includes("HI"))) {
-                    // Generic English fallback - checked AFTER specific European languages
+                    reply = "Bentar... ini bahasa para meneer... saya juga gak paham. Bingung arti neuken in de keuken... 🇳🇱";
+                } 
+                    
+                else if (/[A-Z]/.test(upperText) && (upperText.includes("ICH ") || upperText.includes("DER ") || upperText.includes("DIE ") || upperText.includes("DAS ") || upperText.includes("UND "))) 
+                {
+                    // Triggered when German colonial syntax or common words are detected
+                    reply = "Bentar... ini kode benua eropa... HEY ANTEK ASING! Saya harus buka kamus pelukis Austria dulu... 🇩🇪";
+                } 
+                    
+                else if (/[A-Z]/.test(upperText) && (upperText.includes("BONJOUR") || upperText.includes("OUI") || upperText.includes("MERCI") || upperText.includes("S'IL VOUS PLAÎT") || upperText.includes("BAGUETTE"))) 
+                {
+                    // Triggered when French colonial syntax or common words are detected
+                    reply = "🚨 Hon hon hon, saya butuh baguette! Berani-beraninya pakai bahasa benua mode ANTEK ASING di depan Gatot Kaca! 🇫🇷";
+                } 
+                
+                else if (/[\u0400-\u04FF]/.test(text)) 
+                {
+                    // Triggered when ANY Russian Cyrillic alphabet character is typed
+                    reply = "🚨 HEY HEY ITU BAHASA SOVIET! PKI NIHH!!! Jangan macem-macem ya, Otot Kawat Tulang Besi anti palu-arit! 🇷🇺";
+                }
+
+                else if (/[\u0600-\u06FF]/.test(text)) 
+                {
+                    // Triggered when ANY Arabic character is detected
+                    reply = "Masya Allah, demi Allah saya ndak tahu. Saya cuma Gatot Kaca... 🕋🤲";
+                }
+
+                else if (/[\u3040-\u30FF\u4E00-\u9FFF\uAC00-\uD7AF]/.test(text))
+                {
+                    // Triggered on Japanese (Hiragana/Katakana), Chinese Hanzi, or Korean Hangul
+                    reply = "WADUH... Saya gak bisa baca kotak 📦📦";
+                }
+
+                else if (/[\u10A0-\u10FF]/.test(text))
+                {
+                    // Triggered on Georgian script characters
+                    reply = "WADUH... itu bahasa cacing?? 🪱🐛";
+                }
+                
+                else if (/[A-Z]/.test(upperText) && (upperText.includes("HELLO") || upperText.includes("WHAT") || upperText.includes("HOW") || upperText.includes("WHY") || upperText.includes("WHO") || upperText.includes("PLEASE") || upperText.includes("BRO") || upperText.includes("HELP") || upperText.includes("WHEN") || upperText.includes("WHERE") || upperText.includes("HI"))) 
+                {
+                    // Generic English fallback - checked AFTER specific language scripts
                     reply = "🚨 HEY ANTEK-ANTEK ASING! Berani-beraninya pakai bahasa luar di hadapan Gatot Kaca! 🇮🇩";
-                } else if (upperText.includes("KOFI") || upperText.includes("KO-FI") || upperText.includes("DONASI") || upperText.includes("TRAKTIR")) {
-                    reply = "Nah! Gini dong, ini baru user teladan. Daripada nanya mulu bikin server pusing, mending klik tombol Ko-fi di atas biar otot kawat saya dapet oli baru! ☕✨";
-                } else if (upperText.includes("KPK") || upperText.includes("ORBA") || upperText.includes("98") || upperText.includes("MAFIA") || upperText.includes("PKI") || upperText.includes("1965")) {
-                    reply = "🚨 Waduh... Bentar, kok di luar rumah saya tiba-tiba ada tukang bakso bawa walkie-talkie ya? Kijang Satu, ganti! Saya pura-pura mati dulu... 🕵️‍♂️📻";
-                } else if (upperText.includes("DIMANA") || upperText.includes("ILANG") || upperText.includes("HILANG")) {
-                    reply = "Nanya keberadaan mulu, mending kamu cari Fufufafa sono daripada nyari jawaban di sini. Dia aja gak ketemu-ketemu sejak pemilu kemarin! 🏃‍♂️💨";
-                } else if (upperText.includes("KASKUS") || upperText.includes("POSTINGAN") || upperText.includes("SEJARAH") || upperText.includes("FUFUFAFA")) {
-                    reply = "Sumpah demi database awan saya, itu bukan akun saya! Jangan fitnah Otot Kawat Tulang Besi pernah nge-post yang aneh-aneh di Kaskus tahun 2014 ya! 🤐📱";
-                } else {
+                } 
+                
+                else if (upperText.includes("KOFI") || upperText.includes("KO-FI") || upperText.includes("DONASI") || upperText.includes("SAWERIA")|| upperText.includes("SUMBANG") || upperText.includes("TRAKTIR")) 
+                    {reply = "Nah! Gini dong, ini baru user teladan. Daripada nanya mulu bikin server pusing, mending klik tombol sumbang di atas biar otot kawat saya dapet oli baru! ☕✨";}
+                    
+                else if (upperText.includes("KPK") || upperText.includes("ORBA") || upperText.includes("98") || upperText.includes("MAFIA") || upperText.includes("PKI") || upperText.includes("1965") || upperText.includes("G30")) 
+                    {reply = "🚨 Waduh... Bentar, kok di luar rumah saya tiba-tiba ada tukang bakso bawa walkie-talkie ya? Kijang Satu, ganti! Saya pura-pura mati dulu... 🕵️‍♂️📻";} 
+                
+                else if (upperText.includes("DIMANA") || upperText.includes("ILANG") || upperText.includes("HILANG")) 
+                    {reply = "Nanya keberadaan mulu, mending kamu cari Fufufafa sono daripada nyari jawaban di sini. Dia aja gak ketemu-ketemu sejak pemilu kemarin! 🏃‍♂️💨";} 
+                
+                else if (upperText.includes("KASKUS") || upperText.includes("POSTINGAN") || upperText.includes("SEJARAH") || upperText.includes("FUFUFAFA")) 
+                    {reply = "Sumpah demi database awan saya, itu bukan akun saya! Jangan fitnah Otot Kawat Tulang Besi pernah nge-post yang aneh-aneh di Kaskus tahun 2014 ya! 🤐📱";} 
+                    
+                else {
                     // Pull a random chaotic response
                     reply = chaoticReplies[Math.floor(Math.random() * chaoticReplies.length)];
                 }
