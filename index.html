@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GatotKaca AI v1.0 | Super-Quantum Matrix</title>
+    <meta name="description" content="GatotKaca AI adalah entitas kecerdasan buatan asli Indonesia dengan Otot Kawat Tulang Besi. Tanyakan apa saja ke database awan super-quantum kami.">
+    <meta name="keywords" content="GatotKaca AI, AI Indonesia, Chatbot Meme, Local AI Sandbox, Otot Kawat Tulang Besi, Open Source AI Indonesia">
+    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+
+    <!-- Open Graph / Facebook / WhatsApp Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GatotKaca AI v1.0 | Super-Quantum Framework">
+    <meta property="og:description" content="Entitas kecerdasan buatan asli Indonesia dengan Otot Kawat Tulang Besi.">
+    <meta property="og:image" content="https://github.com/fluidicon.png">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -91,6 +101,11 @@
 <body>
 
     <div class="chat-header">🤖 GATOTKACA AI [Super-Quantum Framework]</div>
+    <div style="margin-top: 8px;">
+        <a href="https://ko-fi.com/okb1creativedesignbureau" target="_blank" style="color: #ffb454; text-decoration: none; font-size: 0.8rem; border: 1px dashed #ffb454; padding: 4px 8px; border-radius: 4px; display: inline-block;">
+            ☕ Support GatotKaca via Ko-fi
+        </a>
+    </div>
     <div class="chat-container" id="chatContainer">
         <div class="message ai">Halo. Saya GatotKaca AI, entitas kecerdasan buatan asli Indonesia dengan Otot Kawat Tulang Besi. Silahkan tanyakan apa saja ke database awan saya.</div>
     </div>
@@ -144,8 +159,9 @@
                     reply = "Halo juga! Ada yang bisa saya buat bingung hari ini?";  
                 } else if (/[A-Z]/.test(upperText) && (upperText.includes("HELLO") || upperText.includes("WHAT") || upperText.includes("HOW") || upperText.includes("WHY") || upperText.includes("WHO") || upperText.includes("PLEASE") || upperText.includes("BRO") || upperText.includes("HI"))) {
                     // If they type common english buzzwords, trigger the xenophobic superhero defense system
-                    reply = "🚨 HEY ANTEK-ANTEK ASING! Berani-beraninya pakai bahasa luar di hadapan Gatot Kaca! 🇮🇩🔥";
-                
+                   reply = "🚨 HEY ANTEK-ANTEK ASING! Berani-beraninya pakai bahasa luar di hadapan Gatot Kaca! 🇮🇩🔥";
+                } else if (upperText.includes("KOFI") || upperText.includes("KO-FI") || upperText.includes("DONASI") || upperText.includes("TRAKTIR")) {
+                    reply = "Nah! Gini dong, ini baru user teladan. Daripada nanya mulu bikin server pusing, mending klik tombol Ko-fi di atas biar otot kawat saya dapet oli baru! ☕✨";
                 } else {
                     // Pull a random chaotic response
                     reply = chaoticReplies[Math.floor(Math.random() * chaoticReplies.length)];
