@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GatotKaca AI v1.0 | Super-Quantum Matrix</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .chat-header {
+            background: #161b22;
+            padding: 15px;
+            border-bottom: 1px solid #30363d;
+            text-align: center;
+            font-weight: bold;
+            color: #ff7b72;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .chat-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .message {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            line-height: 1.4;
+            font-size: 0.95rem;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .user {
+            background: #21262d;
+            border: 1px solid #30363d;
+            align-self: flex-end;
+            color: #f0f6fc;
+        }
+        .ai {
+            background: #1f242c;
+            border: 1px solid #ff7b72;
+            align-self: flex-start;
+        }
+        .input-area {
+            padding: 20px;
+            background: #161b22;
+            border-top: 1px solid #30363d;
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            flex: 1;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 12px;
+            color: #f0f6fc;
+            font-size: 1rem;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ff7b72;
+        }
+        button {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover { background: #2ea043; }
+    </style>
+</head>
+<body>
+
+    <div class="chat-header">🤖 GATOTKACA AI [Super-Quantum Framework]</div>
+    <div class="chat-container" id="chatContainer">
+        <div class="message ai">Halo. Saya GatotKaca AI, entitas kecerdasan buatan asli Indonesia dengan Otot Kawat Tulang Besi. Silahkan tanyakan apa saja ke database awan saya.</div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Tanyakan sesuatu ke Gatot Kaca..." onkeydown="if(event.key === 'Enter') sendMessage()">
+        <button onclick="sendMessage()">Tanya</button>
+    </div>
+
+    <script>
+        const chaoticReplies = [
+            "Yo, ndak tau... kok tanya saya? 🤔",
+            "Waduh? Ndak tahu, tanya AI lain sono. 🙄",
+            "Sistem Otot Kawat Tulang Besi sedang kehabisan memori untuk menjawab ini. 🤖💥",
+            "Lagi males mikir. Tanya besok aja pas Buto Ijo udah ijo semua. 🟩",
+            "Mending kamu buka tab sebelah terus ketik AI lain daripada tanya-tanya mulu. 🛒",
+            "Kamu nanyeeaa? 🎤",
+            "Info lapor pak! Ada user nanya yang aneh-aneh ke sistem pak Gatot. 🚨",
+            "Waduh! Ndak tahu... Silahkan hubungi tim IT kami di awan kinton untuk respon lebih lanjut. ☁️",
+        ];
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const container = document.getElementById('chatContainer');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // 1. User message pops up
+            container.innerHTML += `<div class="message user">${text}</div>`;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+
+            // 2. Fake loading state appearance
+            const typingId = "typing-" + Date.now();
+            container.innerHTML += `<div class="message ai" id="${typingId}">⚡ Mengolah database kedirgantaraan...</div>`;
+            container.scrollTop = container.scrollHeight;
+
+            // 3. Trigger the meme response after a 1.2 second delay
+            setTimeout(() => {
+                const typingElement = document.getElementById(typingId);
+                let reply = "";
+
+                const upperText = text.toUpperCase();
+                
+                // Smart Easter Egg Triggers
+                if (upperText.includes("JSON")) {
+                    reply = "Gagal memuat Querry. Membuka JSON. JSON? Siapa itu Jason? Jangan tanya saya soal parsing strings, pusing kepala besi saya!";
+                } else if (upperText.includes("PINJEM") || upperText.includes("DUIT") || upperText.includes("100")) {
+                    reply = "Waduh, jangankan duit, seratus ribu aja gak punya. Otot kawat kalau digadai belum tentu cair. Tanya AI lain sono!";
+                } else if (upperText.includes("HALO") || upperText.includes("HI")) {
+                    reply = "Halo juga! Ada yang bisa saya buat bingung hari ini?";  
+                } else if (/[A-Z]/.test(upperText) && (upperText.includes("HELLO") || upperText.includes("WHAT") || upperText.includes("HOW") || upperText.includes("WHY") || upperText.includes("WHO") || upperText.includes("PLEASE") || upperText.includes("BRO") || upperText.includes("HI"))) {
+                    // If they type common english buzzwords, trigger the xenophobic superhero defense system
+                    reply = "🚨 HEY ANTEK-ANTEK ASING! Berani-beraninya pakai bahasa luar di hadapan Gatot Kaca! 🇮🇩🔥";
+                
+                } else {
+                    // Pull a random chaotic response
+                    reply = chaoticReplies[Math.floor(Math.random() * chaoticReplies.length)];
+                }
+
+                typingElement.innerHTML = reply;
+                container.scrollTop = container.scrollHeight;
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
