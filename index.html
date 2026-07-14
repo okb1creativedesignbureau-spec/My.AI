@@ -155,8 +155,10 @@
         function sendMessage() {
             const input = document.getElementById('userInput');
             const container = document.getElementById('chatContainer');
-            const text = input.value.trim();
-            if (!text) return;
+            const text = input.value; // Remove .trim() from here so we can see the blank spaces
+
+            // If it's completely empty (user just clicked button without typing anything)
+            if (text === '') return; 
 
             // 1. User message pops up
             container.innerHTML += `<div class="message user">${text}</div>`;
@@ -172,12 +174,18 @@
             setTimeout(() => {
                 const typingElement = document.getElementById(typingId);
                 let reply = "";
+                const trimmedText = text.trim();
+                const upperText = trimmedText.toUpperCase();
 
-                const upperText = text.toUpperCase();
-                
+                // Check if the user only sent spaces
+                if (trimmedText === "") {
+                    reply = "HEH! Ngetik yang bener dong, malah ngirim prompt gaib! Dikira saya dukun siber apa bisa baca pikiran kosongmu? 🤬";
+                }
                 // Smart Easter Egg Triggers
-                if (upperText.includes("JSON")) 
-                    {reply = "Gagal memuat Querry. Membuka JSON. JSON? Siapa itu Jason? Jangan tanya saya soal parsing strings, pusing kepala besi saya!";} 
+                else if (upperText.includes("JSON")) {
+                    reply = "Gagal memuat Querry. Membuka JSON. JSON? Siapa itu Jason? Jangan tanya saya soal parsing strings, pusing kepala besi saya!";
+                } 
+                // ... rest of your else if chain goes here
                 else if (upperText.includes("KODE") || upperText.includes("PROGRAM") || upperText.includes("SCRIPT"))
                     {reply = "PUYER PALE KU! Tanya AI lain sono!";}
                 else if (upperText.includes("PINJEM") || upperText.includes("DUIT") || upperText.includes("100")) 
