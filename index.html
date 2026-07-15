@@ -154,6 +154,8 @@
             "Koneksi terputus sementara. Silakan bayar uang parkir Rp 2.000 dulu ke layar monitor Anda untuk melanjutkan. 🏍️",
             "Pertanyaan Anda terlalu sensitif. Di depan rumah saya tiba-tiba ada tukang bakso bawa walkie-talkie. Saya diam ya... 🤫🍜📻🕵️‍♂️🚔",
             "Maaf, otak AI-nya lagi stuck. Maklum, developer-nya cuma modal ijazah palsu, coding-nya sambil merem pas matkul Algoritma.🎓🎓🎓❌🙈😴",
+            "Awas dek, gara-gara ketikanmu, di depan gerbang server tiba-tiba ada gerobak siomay bawa antena parabola satelit... 📡🥟🕵️‍♂️🚔",
+            "WADIDAW.... Prompt opo iki?? Gatot Kaca bingung, Admin juga bingung. To the Moon dulu ah 🙈🙈🙈",
         ];
 
         function sendMessage() {
@@ -267,7 +269,10 @@
 
                 else if (upperText.includes("PRABOWO") || upperText.includes("GIBRAN") || upperText.includes("MENHAN") || upperText.includes("02")) 
                     {reply = "🚨 SIAP SALUT! PRESIDEN KITA! 🏛️🏛️ Jangan pancing-pancing saya nulis kritik ya dek ya! Otot kawat saya mendadak tegak lurus, disiplin militer, dan anti-provokasi! Saya mau push-up 1000x dulu demi pertahanan negara! 🪖🎖️🏃‍♂️💨";}
-                
+
+                else if (upperText.includes("ESDM") || upperText.includes("KEMENKEU") || upperText.includes("PARTAI") || upperText.includes("MK")) 
+                    {reply = "🚨 MAAF! Sistem anti omon-omon aktif! 🙅‍♂️🗣️❌ Tolong jangan memancing keributan di ruang publik digital dek! Daripada bahas ginian, mending kamu ikut antrean Makan Bergizi Gratis (MBG) biar fokus belajar coding! Otot kawat saya sudah tegak lurus, disiplin militer, dan anti-provokasi! 🪖🎖️🍱🥛";}
+                    
                 else {
                     // Pull a random chaotic response
                     reply = chaoticReplies[Math.floor(Math.random() * chaoticReplies.length)];
